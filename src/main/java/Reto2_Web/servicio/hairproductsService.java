@@ -1,9 +1,15 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package Reto2_Web.servicio;
 
+package Reto2_Web.servicio;
+/**
+ * <h1>Service </h1>
+ * Clase hairproductsService crea los metodos para registrar, modificar, eliminar
+ * hairproducts y verificar existencias de correo
+ *
+ * @since 11-12-2021
+ * @version 1.0
+ * @author Cristian David Salazar Aponte
+ *
+ */
 import Reto2_Web.modelo.Hairproducts;
 import Reto2_Web.repositorio.hairproductsRepositorio;
 import java.util.List;
@@ -11,23 +17,33 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-/**
- *
- * @author USUARIO
- */
+
 @Service
 public class hairproductsService {
      @Autowired
     private hairproductsRepositorio clotheRepository;
-
+/**
+     * obtiene la lista e usuario
+     *
+     * @return
+     */
     public List<Hairproducts> getAll() {
         return clotheRepository.getAll();
     }
+    /**
+     * 
+     * @param reference
+     * @return 
+     */
 
    public Optional<Hairproducts> getClothe(String reference) {
         return clotheRepository.getClothe(reference);
     }
-
+/**
+ * crea hairproducts y valida su existencia 
+ * @param accesory
+ * @return 
+ */
     public Hairproducts create(Hairproducts accesory) {
         if (accesory.getReference() == null) {
             return accesory;
@@ -35,7 +51,11 @@ public class hairproductsService {
             return clotheRepository.create(accesory);
         }
     }
-
+/**
+ * modifica hairproducts, definiendo sus variables
+ * @param accesory
+ * @return 
+ */
     public Hairproducts update(Hairproducts accesory) {
 
         if (accesory.getReference() != null) {
@@ -74,7 +94,11 @@ public class hairproductsService {
             return accesory;
         }
     }
-
+/**
+ * elimina hairproducts por su referencia 
+ * @param reference
+ * @return 
+ */
     public boolean delete(String reference) {
         Boolean aBoolean = getClothe(reference).map(accesory -> {
             clotheRepository.delete(accesory);

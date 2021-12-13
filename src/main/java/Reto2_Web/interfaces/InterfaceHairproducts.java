@@ -1,17 +1,18 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
- */
-package Reto2_Web.interfaces;
 
+package Reto2_Web.interfaces;
+/**
+ * <h1>Interface </h1>
+ * Clase interface hairproductos
+ * @since 11-12-2021
+ * @version 1.0
+ * @author Cristian David Salazar Aponte
+ *
+ */
 
 import Reto2_Web.modelo.Hairproducts;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-/**
- *
- * @author USUARIO
- */
+
 public interface InterfaceHairproducts extends MongoRepository<Hairproducts, String> {
     
 }
